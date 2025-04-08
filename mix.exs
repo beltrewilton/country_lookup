@@ -1,9 +1,9 @@
 defmodule CountryLookup.MixProject do
   use Mix.Project
 
-  @version "0.1.2"
+  @version "0.0.1"
   @repo_url "https://github.com/beltrewilton/country_lookup"
-  
+
   def project do
     [
       app: :country_lookup,
@@ -11,11 +11,12 @@ defmodule CountryLookup.MixProject do
       elixir: "~> 1.18",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      
+
       # Hex
-      description: "A lightweight Elixir library for identifying countries by their telephone dialing codes",
+      description:
+        "A lightweight Elixir library for identifying countries by their telephone dialing codes",
       package: package(),
-  
+
       # Docs
       name: "country_lookup",
       docs: [
@@ -32,13 +33,22 @@ defmodule CountryLookup.MixProject do
       ]
     ]
   end
-  
+
   def package do
     [
       licenses: ["MIT"],
       links: %{
         "GitHub" => @repo_url
-      }
+      },
+      files: [
+        "lib",
+        ".formatter.exs",
+        "mix.exs",
+        "README*",
+        "data",
+        "python_skrap"
+      ],
+      exclude_patterns: ["python_skrap/flags"]
     ]
   end
 
@@ -52,7 +62,8 @@ defmodule CountryLookup.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:jason, "~> 1.4"}
+      {:jason, "~> 1.4"},
+      {:ex_doc, "~> 0.37.3", only: :dev, runtime: false}
     ]
   end
 end

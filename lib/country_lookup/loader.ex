@@ -4,9 +4,11 @@ defmodule CountryLookup.Loader do
   def load_data do
     with {:ok, body} <- File.read(@json_path),
          {:ok, json} <- Jason.decode(body) do
+      IO.inspect(@json_path, label: "@json_path")
       json
     else
       _ -> 
+      IO.inspect(@json_path, label: "@json_path")
       []
     end
   end
