@@ -56,7 +56,7 @@ by adding `country_lookup` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:country_lookup, "~> 0.1.0"}
+    {:country_lookup, "~> 0.0.2"}
   ]
 end
 ```
